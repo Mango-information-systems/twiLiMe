@@ -31,7 +31,14 @@ Small node.js to extract all twitter usernames contained from twitter lists.
       node twiLiMe.js
     </pre>
 
-3. open results.txt to read the list of usernames.
+3. read output from the command line. Execution is completed successfully in case the following output is displayed:
+    members from all lists have been extracted successfully :)
+    ... results were saved!
+    
+The file results.txt stores the list of usernames.
+
+## guidelines
+* the lists.json file will be updated to store the progress of the extraction. keep a copy of the original file in case you want to re-use it for another purpose 
 
 ## Twitter rate limit
 
@@ -47,6 +54,7 @@ This app uses Mikeal's request library. Obviously, you should also have node.js 
 
 ## Status
 Under development. Basic tests have been performed and were successful under nodejs. 0.4.12.
+JSON response from twitter sometimes fails to parse correctly.
 
 ## To do
 support user authentication to increase rate limit and get able to extract from private lists to which the authenticated user has access

@@ -31,6 +31,9 @@ function getListMembers(list, owner, cursor, callback) {
 	apiUrl = 'https://api.twitter.com/1/lists/members.json?skip_status=true&slug='+ list +'&owner_screen_name='+ owner +'&cursor='+cursor;
 
 	request.get({'url': apiUrl}, function(error, response, body) {
+// debugging code:
+// console.log(response)
+//	console.log(body)
 		if (error) {
 		// some error prevented the list to be parsed (input file wrong syntax or twitter API-related error
 			console.log('error querying twitter API for list members')
@@ -43,7 +46,7 @@ function getListMembers(list, owner, cursor, callback) {
 			if ( JSON.parse(body).error=='Rate limit exceeded. Clients may not make more than 150 requests per hour.' ) {
 			// twitter rate limit has been reached, save extraction status to re-run the process later
 				console.log('twitter rate limiting reached');
-				saveListMembers();
+				callback();
 				saveProcessingStatus();
 			}
 			else {
@@ -138,14 +141,15 @@ function readListsToParse() {
 		
 		twitterLists = JSON.parse(data).lists;
 		
-		// store the number of lists
-		lock = twitterLists.length;
-		
 		for (var i in twitterLists) {
 		// 2. query twitter API for members		
 			if (!twitterLists[i].process_complete && twitterLists[i].listName !='' && twitterLists[i].owner!='') {
+				// increase the number of lists counter
+				lock++;
+				// retrieve previous cursor (next page index) in case partial extraction has already been done
 				cursor = twitterLists[i].processed_until?twitterLists[i].processed_until:-1;
 				console.log('extracting members from list '+ twitterLists[i].listName + ' from ' + twitterLists[i].owner)
+				// query twitter API to retrieve twitter usernames
 				getListMembers(twitterLists[i].listName, twitterLists[i].owner, cursor, saveListMembers);
 			}
 		}
