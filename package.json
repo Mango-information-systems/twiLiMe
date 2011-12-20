@@ -1,0 +1,16 @@
+{
+  "author": "Mehdi El Fadil",
+  "name": "twitter_list_members",
+  "description": "extraction of twitter usernames from specified twitter lists",
+  "version": "0.0.1",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~v0.4.12"
+  },
+  "dependencies": {
+    "request": "2.2.x"
+  },
+  "devDependencies": {}
+}
