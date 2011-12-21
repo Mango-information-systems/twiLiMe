@@ -1,6 +1,6 @@
 # twiLiMe - extracting members from twitter lists
 
-Small node.js to extract all twitter usernames contained from twitter lists.
+Small node.js utility to extract all twitter usernames contained from twitter lists.
 
 ## features
 * Extracts all twitter usernames from many lists into a single txt file.
@@ -38,7 +38,7 @@ Small node.js to extract all twitter usernames contained from twitter lists.
 The file results.txt stores the list of usernames.
 
 ## guidelines
-* the lists.json file will be updated to store the progress of the extraction. keep a copy of the original file in case you want to re-use it for another purpose 
+the lists.json file will be updated to store the progress of the extraction. keep a copy of the original file in case you want to re-use it for another purpose 
 
 ## Twitter rate limit
 
@@ -50,10 +50,11 @@ You can use CRON or another scheduling tool to do this.
 
 ## Dependencies
 
-This app uses Mikeal's request library. Obviously, you should also have node.js working on your machine.
+This app uses Mikeal's [request](https://github.com/mikeal/request) library. Obviously, you should also have node.js working on your machine.
 
 ## Status
 Under development. Basic tests have been performed and were successful under nodejs. 0.4.12.
+
 JSON response from twitter sometimes fails to parse correctly.
 
 ## To do
