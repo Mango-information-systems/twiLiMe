@@ -24,7 +24,21 @@ Small node.js utility to extract all twitter usernames contained from twitter li
 
 ## How to use
 
-1. write the lists you want to process inside lists.json file. All you need to do is write the name of list owner and name of the list (see lists.json file for an example)
+1. write the names of the lists you want to process inside lists.json file. All you need is the name of list owner and name of the list. Example file:
+````javascript
+{
+  "lists":[
+	{
+	  "owner": "Support",
+	  "listName": "international-support
+	},
+	{
+	  "owner": "crystal",
+	  "listName": "twizzles"
+	}
+  ]
+}
+````
 
 2. execute the application :
     <pre>
@@ -38,7 +52,7 @@ Small node.js utility to extract all twitter usernames contained from twitter li
 The file results.txt stores the list of usernames.
 
 ## guidelines
-the lists.json file will be updated to store the progress of the extraction. keep a copy of the original file in case you want to re-use it for another purpose 
+During the processing, the lists.json file will be updated to store the progress of the extraction. keep a copy of the original file in case you want to re-use it for another purpose 
 
 ## Twitter rate limit
 
