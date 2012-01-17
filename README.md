@@ -31,7 +31,7 @@ Small node.js utility to extract all twitter usernames contained from twitter li
   "lists":[
 	{
 	  "owner": "Support",
-	  "listName": "international-support
+	  "listName": "international-support"
 	},
 	{
 	  "owner": "crystal",
